@@ -1,3 +1,5 @@
+tensorflow=1.15.0=mkl_py37h3789bd0_0
+python=3.7.16=h6244533_0
 matplotlib
 numpy
 pandas
