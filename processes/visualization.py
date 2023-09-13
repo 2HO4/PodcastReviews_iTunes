@@ -94,7 +94,7 @@ def boxenplots(self, color='white', color_points='black', **kwargs):
 
 # Heatmap that represents the correlation matrix of the numeric data
 @add_method(pd.DataFrame)
-def corr_heatmap(self):
+def corr_heatmap(self, title=None):
     # Create a square figure
     plt.figure(figsize=(8, 8))
     
@@ -112,7 +112,10 @@ def corr_heatmap(self):
     )
     
     # Format plot's details (title)
-    plt.title('Correlation Matrix of Features Heatmap', fontdict={'fontsize': 20, 'fontweight': 'bold'})
+    plt.title(
+        f"Correlation Matrix Heatmap | {'Features' if title is None else title.capitalize()}",
+        fontdict={'fontsize': 20, 'fontweight': 'bold'}
+    )
     
     # Display the plot
     plt.show()

@@ -7,6 +7,7 @@
 from processes.tools.modify_cls import add_method
 import pandas as pd
 import warnings
+import re
 warnings.simplefilter(action='ignore', category=UserWarning)
 
 
@@ -66,7 +67,20 @@ def format_titles(self, columns=None):
 
 
 @add_method(pd.DataFrame)
-def recap(self, n_rows=10):
+def recap(self, n_rows=10, show_title=True, title=None):
+    # Update types of columns
+    self.update_cols()
+    
+    # Show title
+    # if show_title:
+    #     if title is None:
+    #         title = f"{self=}".split('=')[0]
+    #         print(title)
+    #         print(separate_underscores(title))
+    #         title = ' '.join(separate_camel_case(w) for w in separate_underscores(title))
+    #         print(title)
+    #     print(title.upper())
+    
     # Number of observations and features
     print(f"Number of Observations: {self.shape[0]}; \n"
           f"Number of Features: {self.shape[1]}.")
@@ -85,6 +99,19 @@ def update_cols(self):
     self.cols_numb = self.select_dtypes(include='number').columns.tolist()
     
     return
+
+
+# Function that separates CamelCase words
+def separate_camel_case(word):
+    return ' '.join(re.findall(r'[A-Z]?(?:[a-z]+|[A-Z]*(?=[A-Z]|$))', word))
+
+
+# Function that separates underscore words
+def separate_underscores(word):
+    word = word.split('_')
+    word.reverse()
+    
+    return word
 
 
 # END -------------------

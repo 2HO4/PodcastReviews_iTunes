@@ -52,7 +52,11 @@ def has_duplicates(self, colName, rm=False, verbose=True):
         if verbose:
             print(f'Duplicates in {colName.capitalize()} found.')
             print(f'- No. Unique Values:', vals_unique.size)
-            print(f'- Duplicated Values:', ', '.join(vals_duplicated))
+            print(
+                f'- Duplicated Values:',
+                ', '.join(vals_duplicated) if len(vals_duplicated) <= 10
+                else f"{', '.join(vals_duplicated[:10])}, ..."
+            )
         if rm:
             if colName == 'index':
                 self.drop_duplicates(inplace=True)
