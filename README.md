@@ -15,23 +15,18 @@ Data cleaning was performed to address missing values, inconsistencies, and outl
 
 ### 3. Exploratory Data Analysis (EDA)
 The EDA phase involved extensive data exploration and visualization. Key elements of EDA included:
-	- **Statistical Summaries:** Understanding the data's basic characteristics.
-
-	- **Charts and Visualizations:** Visualizing trends and distributions.
-
-	- **Correlation Analysis:** Discovering relationships between variables.
-
-	- **Testing for Anomalies:** Identifying and handling outliers or anomalies.
+   - **Statistical Summaries:** Understanding the data's basic characteristics.
+   - **Charts and Visualizations:** Visualizing trends and distributions.
+   - **Correlation Analysis:** Discovering relationships between variables.
+   - **Testing for Anomalies:** Identifying and handling outliers or anomalies.
 
 ### 4. Data Analysis
 The data analysis phase focused on deriving meaningful insights and patterns from the dataset. Key elements of the analysis consisted of:
-    - **Prediction Analysis:** Developing a BERT-based machine learning model for predictive tasks.
-
-    - **Inferential Statistical Analysis:** Extracting actionable insights through statistical methods.
+   - **Prediction Analysis:** Developing a BERT-based machine learning model for predictive tasks.
+   - **Inferential Statistical Analysis:** Extracting actionable insights through statistical methods.
 
 We fine-tuned a BERT model using the pre-trained 2-layer, 128-hidden, 12-attention-head, 110M-parameter BERT model (Turc et al., 2019) by training it on the podcast reviews and ratings. This specialized NLP model enables in-depth analysis of review text and associated ratings.
-    - To Retrain the Model:
-
+   - To retrain the model:
 ```bash
 python run_classifier.py 
 	--task_name=cola 
@@ -49,10 +44,9 @@ python run_classifier.py
 	--output_dir=./bert_output/ 
 	--do_lower_case=True
 ```
-
-    - To use the trained model for predictions on the test data, *test.tsv*:
-        - Go into the *bert_output* directory and record the highest number of the *model.ckpt* file
-        - Run the following command after having replaced `<n_max>` with that highest number:
+   - To use the trained model for predictions on the test data, *test.tsv*:
+       - Go into the *bert_output* directory and record the highest number of the *model.ckpt* file
+       - Run the following command after having replaced `<n_max>` with that highest number:
 
  ```bash
 python run_classifier.py 
@@ -83,14 +77,7 @@ This project presents a comprehensive analysis of iTunes podcast reviews, empowe
 Pull requests are welcome. For significant changes, please open an issue to discuss proposed modifications. Ensure that tests are added or updated as needed.
 
 ## Citation
-```
-@article{turc2019,
-  title={Well-Read Students Learn Better: On the Importance of Pre-training Compact Models},
-  author={Turc, Iulia and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
-  journal={arXiv preprint arXiv:1908.08962v2 },
-  year={2019}
-}
-```
+   1. Turc, I., Chang, M.-W., Lee, K., & Toutanova, K. (2019). [Well-Read Students Learn Better: On the Importance of Pre-training Compact Models](https://arxiv.org/abs/1908.08962v2). arXiv preprint arXiv:1908.08962v2.
 
 ## Changelog
 For a detailed history of changes, please refer to the [CHANGELOG](CHANGELOG.md) file.
