@@ -1,5 +1,7 @@
 # Misc
 data/
+bert/data
+bert/bert_output
 
 # Intellij
 .idea/
