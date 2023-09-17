@@ -108,7 +108,7 @@ def corr_heatmap(self, title=None):
         square=True,
         annot=True,
         fmt='.2f',
-        annot_kws={'size': 8 + round(24/len(self.cols_numb))}
+        annot_kws={'size': 8 + round(24 / len(self.cols_num))}
     )
     
     # Format plot's details (title)

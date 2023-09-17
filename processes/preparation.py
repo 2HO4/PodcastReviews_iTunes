@@ -85,8 +85,8 @@ def recap(self, n_rows=10, show_title=True, title=None):
     print(f"Number of Observations: {self.shape[0]}; \n"
           f"Number of Features: {self.shape[1]}.")
     
-    print(f"- Categorical features: {', '.join(map(str, self.cols_name))}; \n"
-          f"- Numerical features: {', '.join(map(str, self.cols_numb))}.")
+    print(f"- Categorical features: {', '.join(map(str, self.cols_cat))}; \n"
+          f"- Numerical features: {', '.join(map(str, self.cols_num))}.")
     
     return self.head(n_rows)
 
@@ -94,9 +94,9 @@ def recap(self, n_rows=10, show_title=True, title=None):
 @add_method(pd.DataFrame)
 def update_cols(self):
     # List of the names of columns with qualitative data
-    self.cols_name = self.select_dtypes(include='object').columns.tolist()
+    self.cols_cat = self.select_dtypes(include='object').columns.tolist()
     # List of the names of columns with quantitative data
-    self.cols_numb = self.select_dtypes(include='number').columns.tolist()
+    self.cols_num = self.select_dtypes(include='number').columns.tolist()
     
     return
 
